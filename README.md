@@ -1,6 +1,6 @@
 # OpenTelemetry BatchTracedSpanProcessor
 
-[![JSR](https://jsr.io/badges/@esroyo/otel-batch-traced-span-processor)](https://jsr.io/@esroyo/otel-batch-traced-span-processor) [![JSR Score](https://jsr.io/badges/@esroyo/otel-batch-traced-span-processor/score)](https://jsr.io/@esroyo/otel-batch-traced-span-processor) [![codecov](https://codecov.io/gh/esroyo/opentelemetry-batch-traced-span-processor/graph/badge.svg?token=XIQYWSW3H8)](https://codecov.io/gh/esroyo/opentelemetry-batch-traced-span-processor)
+[![JSR](https://jsr.io/badges/@esroyo/otel-batch-traced-span-processor)](https://jsr.io/@esroyo/otel-batch-traced-span-processor) [![JSR Score](https://jsr.io/badges/@esroyo/otel-batch-traced-span-processor/score)](https://jsr.io/@esroyo/otel-batch-traced-span-processor) [![codecov](https://codecov.io/gh/esroyo/opentelemetry-batch-traced-span-processor/graph/badge.svg?token=W14KZ3R48H)](https://codecov.io/gh/esroyo/opentelemetry-batch-traced-span-processor)
 
 `BatchTracedSpanProcessor` is a class that extends from the official [BatchSpanProcessor](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base) ([@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)). It allows to wait for some time before adding the spans into the `BatchSpanProcessor` internal buffer. The intention of the delay is to give more room for a root span to end, before the export happens.
 
