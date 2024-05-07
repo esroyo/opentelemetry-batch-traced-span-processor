@@ -12,7 +12,10 @@ const DEFAULT_MAX_WAIT_BY_TRACE_MILLIS = 30000;
 // @ts-ignore private
 export class BatchTracedSpanProcessor<T extends BufferTracedConfig>
     extends BatchSpanProcessor {
-    protected _pendingSpansByTrace = new Map<TraceId, SpanGroup>();
+    protected _pendingSpansByTrace: Map<TraceId, SpanGroup> = new Map<
+        TraceId,
+        SpanGroup
+    >();
 
     protected _maxWaitByTraceMillis: number = DEFAULT_MAX_WAIT_BY_TRACE_MILLIS;
 
@@ -57,7 +60,7 @@ export class BatchTracedSpanProcessor<T extends BufferTracedConfig>
         }
     }
 
-    forceFlush() {
+    forceFlush(): Promise<void> {
         // @ts-ignore private
         if (this._shutdownOnce.isCalled) {
             // @ts-ignore private
@@ -87,7 +90,7 @@ export class BatchTracedSpanProcessor<T extends BufferTracedConfig>
     }
 
     // @ts-ignore private
-    protected _shutdown() {
+    protected _shutdown(): Promise<void> {
         return Promise.resolve()
             .then(() => {
                 return this._flushPendingSpanGroups();
