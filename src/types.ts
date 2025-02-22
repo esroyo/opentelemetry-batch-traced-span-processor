@@ -1,8 +1,5 @@
-import {
-    type BufferConfig,
-    type ReadableSpan,
-    type SpanContext,
-} from '../deps.ts';
+import type { SpanContext } from '@opentelemetry/api';
+import type { BufferConfig, ReadableSpan } from '@opentelemetry/sdk-trace-base';
 
 export type TraceId = SpanContext['traceId'];
 

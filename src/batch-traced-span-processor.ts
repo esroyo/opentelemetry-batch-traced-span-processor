@@ -2,8 +2,8 @@ import {
     BatchSpanProcessor,
     ReadableSpan,
     SpanExporter,
-    TraceFlags,
-} from '../deps.ts';
+} from '@opentelemetry/sdk-trace-base';
+import { TraceFlags } from '@opentelemetry/api';
 
 import { SpanGroup, TraceId } from './types.ts';
 
@@ -26,7 +26,7 @@ export class BatchTracedSpanProcessor<T extends BufferTracedConfig>
         }
     }
 
-    onEnd(span: ReadableSpan): void {
+    override onEnd(span: ReadableSpan): void {
         // @ts-ignore private
         if (this._shutdownOnce.isCalled) {
             return;
@@ -60,7 +60,7 @@ export class BatchTracedSpanProcessor<T extends BufferTracedConfig>
         }
     }
 
-    forceFlush(): Promise<void> {
+    override forceFlush(): Promise<void> {
         // @ts-ignore private
         if (this._shutdownOnce.isCalled) {
             // @ts-ignore private

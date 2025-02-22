@@ -1,11 +1,9 @@
-import { ReadableSpan, TraceFlags } from '../deps.ts';
-import {
-    assertEquals,
-    assertSpyCalls,
-    FakeTime,
-    InMemorySpanExporter,
-    spy,
-} from '../dev_deps.ts';
+import { TraceFlags } from '@opentelemetry/api';
+import { type ReadableSpan } from '@opentelemetry/sdk-trace-base';
+import { assertEquals } from '@std/assert';
+import { assertSpyCalls, spy } from '@std/testing/mock';
+import { FakeTime } from '@std/testing/time';
+import { InMemorySpanExporter } from '@opentelemetry/sdk-trace-base';
 
 import { BatchTracedSpanProcessor } from './batch-traced-span-processor.ts';
 
